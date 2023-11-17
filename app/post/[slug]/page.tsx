@@ -1,4 +1,5 @@
 import { PostDetail } from "@/components";
+import Author from "@/components/Author";
 import { getPostDetails } from "@/services";
 import React from "react";
 
@@ -11,8 +12,13 @@ const PostDetails = async ({ params }: { params: { slug: string } }) => {
           <div className="col-span-1 lg:col-span-8">
             <p>{postDetails.title}</p>
             <PostDetail post={postDetails} />
-            {/* <Author author={post.author} />
-          <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
+            <Author
+              name={postDetails.author.name}
+              bio={postDetails.author.bio}
+              photo={postDetails.author.photo}
+              id={postDetails.author.id}
+            />
+            {/* <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} /> */}
           </div>
