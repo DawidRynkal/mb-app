@@ -10,7 +10,6 @@ const PostDetails = async ({ params }: { params: { slug: string } }) => {
       <div className="container mx-auto px-10 mb-8 max-w-5xl">
         <div className="grid grid-cols-1">
           <div className="col-span-1 lg:col-span-8">
-            <p>{postDetails.title}</p>
             <PostDetail post={postDetails} />
             <Author
               name={postDetails.author.name}
@@ -18,8 +17,8 @@ const PostDetails = async ({ params }: { params: { slug: string } }) => {
               photo={postDetails.author.photo}
               id={postDetails.author.id}
             />
-            {/* <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
-          <CommentsForm slug={post.slug} />
+            {/* <AdjacentPosts slug={post.slug} createdAt={post.createdAt} /> */}
+            {/* <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} /> */}
           </div>
         </div>
