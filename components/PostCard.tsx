@@ -5,7 +5,7 @@ import React from "react";
 
 const PostCard = ({ node: post }: EdgeProps) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8 mr-5">
+    <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
       {/* <div className="relative shadow-md inline-block w-full h-60 lg:h-80 mb-6">
       <Image
         unoptimized

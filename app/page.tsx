@@ -1,5 +1,4 @@
-import { PostCard } from "@/components";
-import PostWidget from "@/components/PostWidget";
+import { PostWidget } from "@/components";
 import { getPosts } from "@/services";
 
 export default async function Home() {

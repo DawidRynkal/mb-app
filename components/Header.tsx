@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import Link from "next/link";
 
@@ -13,18 +13,18 @@ const Header = () => {
             </span>
           </Link>
         </div>
-        <div className="hidden md:float-left md:contents">
-          <Link href={`/page-1`}>
-            <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
-              page 1
+        <ul className="font-medium justify-end flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse">
+          <Link href={`/articles`}>
+            <span className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+              Articles
             </span>
           </Link>
-          <Link href={`/page-2`}>
-            <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
-              page 2
+          <Link href={`/contact`}>
+            <span className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+              Contact
             </span>
           </Link>
-        </div>
+        </ul>
       </div>
     </div>
   );
