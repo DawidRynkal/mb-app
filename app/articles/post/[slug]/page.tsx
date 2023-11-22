@@ -1,10 +1,11 @@
-import { PostDetail } from "@/components";
+import { CommentsForm, PostDetail } from "@/components";
 import Author from "@/components/Author";
 import { getPostDetails } from "@/services";
 import React from "react";
 
 const PostDetails = async ({ params }: { params: { slug: string } }) => {
   const postDetails = await getPostDetails(params.slug);
+
   return (
     <>
       <div className="container mx-auto px-10 mb-8 max-w-5xl">
@@ -18,8 +19,8 @@ const PostDetails = async ({ params }: { params: { slug: string } }) => {
               id={postDetails.author.id}
             />
             {/* <AdjacentPosts slug={post.slug} createdAt={post.createdAt} /> */}
-            {/* <CommentsForm slug={post.slug} />
-          <Comments slug={post.slug} /> */}
+            <CommentsForm slug={postDetails.slug} />
+            {/*  <Comments slug={post.slug} /> */}
           </div>
         </div>
       </div>

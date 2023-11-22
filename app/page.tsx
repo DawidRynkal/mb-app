@@ -1,9 +1,10 @@
-import { PostWidget } from "@/components";
-import { getPosts } from "@/services";
+"use client";
 
-export default async function Home() {
-  const posts = await getPosts();
+import { CommentsForm, PostWidget } from "@/components";
+import { submitComment } from "@/services";
+import { useEffect } from "react";
 
+export default function Home() {
   return (
     <div className="container flex justify-center mx-auto px-10 mb-8">
       <div className="lg:col-span-4 col-span-1">

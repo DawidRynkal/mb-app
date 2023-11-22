@@ -1,4 +1,8 @@
-import { QueryPostsResultProps, QueryPostDetailsResultProps } from "@/types";
+import {
+  QueryPostsResultProps,
+  QueryPostDetailsResultProps,
+  CommentPostType,
+} from "@/types";
 import { request, gql } from "graphql-request";
 
 const grapqlAPI: string = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
@@ -73,4 +77,16 @@ export const getPostDetails = async (slug: string) => {
   });
 
   return result.post;
+};
+
+export const submitComment = async (obj: CommentPostType) => {
+  const result = await fetch("/api/comments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result;
 };

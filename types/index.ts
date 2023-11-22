@@ -1,3 +1,13 @@
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      [key: string]: string | undefined;
+      NEXT_PUBLIC_GRAPHCMS_ENDPOINT: string;
+      HYPOGRAPH_TOKEN: string;
+    }
+  }
+}
+
 export interface FeaturedImageProps {
   url: string;
 }
@@ -64,4 +74,11 @@ export interface PostProps {
 
 export interface QueryPostDetailsResultProps {
   post: PostProps;
+}
+
+export interface CommentPostType {
+  slug: string;
+  comment: string;
+  email: string;
+  name: string;
 }
