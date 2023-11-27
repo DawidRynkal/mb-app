@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
-import moment from "moment";
 import Link from "next/link";
 import favicon from "../app/favicon.ico";
 
-const relatedPosts = [{ title: "title 1" }, { title: "title 2" }];
+const workers = [{ name: "Ander" }, { name: "Juan" }];
 
-const PostWidget = () => {
+const WorkersWidget = () => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
+    <div className="bg-white h-fit shadow-lg rounded-lg p-4 lg:pb-12 mb-8 min-w-[300px]">
       <h3 className="text-xl mb-8 font-semibold border-b pb-4">
-        {1 ? "Related Posts" : "Recent Posts"}
+        Contact our specialist!
       </h3>
-      {relatedPosts.map((post, index) => (
+      {workers.map((worker, index) => (
         <div key={index} className="flex items-center w-full mb-4">
           <div className="w-16 flex-none">
             <Image
@@ -25,13 +24,10 @@ const PostWidget = () => {
             />
           </div>
           <div className="flex-grow ml-4">
-            <p className="text-gray-500 font-xs">
-              01.01.2024
-              {/* {moment(post.createdAt).format('MMM DD, YYYY')} */}
-            </p>
             <Link href={`/person`} className="text-md" key={index}>
-              {post.title}
+              {worker.name}
             </Link>
+            <p className="text-gray-500 font-xs">999 888 543</p>
           </div>
         </div>
       ))}
@@ -39,4 +35,4 @@ const PostWidget = () => {
   );
 };
 
-export default PostWidget;
+export default WorkersWidget;
