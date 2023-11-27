@@ -6,16 +6,6 @@ import React from "react";
 const PostCard = ({ node: post }: EdgeProps) => {
   return (
     <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
-      {/* <div className="relative shadow-md inline-block w-full h-60 lg:h-80 mb-6">
-      <Image
-        unoptimized
-        loader={grpahCMSImageLoader}
-        alt={post.title}
-        className="shadow-lg rounded-t-lg lg:rounded-lg"
-        layout="fill"
-        src={post.featuredImage.url}
-      />
-    </div> */}
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
         <img
           src={post.featuredImage.url}
@@ -29,15 +19,6 @@ const PostCard = ({ node: post }: EdgeProps) => {
       </h1>
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
         <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center">
-          {/* <Image
-          unoptimized
-          loader={grpahCMSImageLoader}
-          alt={post.author.name}
-          height="30px"
-          width="30px"
-          className="align-middle rounded-full"
-          src={post.author.photo.url}
-        /> */}
           <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
             {post.author.name}
           </p>

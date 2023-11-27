@@ -5,6 +5,7 @@ import CommentsForm from "./CommentsForm";
 import Comments from "./Comments";
 import WorkersWidget from "./WorkersWidget";
 import Loader from "./Loader";
+import Footer from "./Footer";
 
 export {
   PostCard,
@@ -14,4 +15,5 @@ export {
   CommentsForm,
   Comments,
   Loader,
+  Footer,
 };

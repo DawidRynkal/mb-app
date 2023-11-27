@@ -123,7 +123,7 @@ const PostDetail = ({ post }: QueryPostDetailsResultProps) => {
           <img
             src={post.featuredImage.url}
             alt=""
-            className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
+            className="object-top h-full w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg"
           />
         </div>
         <div className="px-4 lg:px-0">
@@ -133,7 +133,7 @@ const PostDetail = ({ post }: QueryPostDetailsResultProps) => {
                 alt={post.author.name}
                 height="30px"
                 width="30px"
-                className="align-middle rounded-full"
+                className="align-middle rounded-full w-8 h-8 object-cover"
                 src={post.author.photo.url}
               />
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
