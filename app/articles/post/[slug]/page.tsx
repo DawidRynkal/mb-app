@@ -1,7 +1,6 @@
 import { Comments, CommentsForm, PostDetail } from "@/components";
 import Author from "@/components/Author";
 import { getPostDetails, getConnectedComments } from "@/services";
-import { useRouter } from "next/router";
 import React from "react";
 
 const PostDetails = async ({ params }: { params: { slug: string } }) => {

@@ -92,3 +92,15 @@ export interface GetCommentsType {
 export interface QueryCommentsDetailsResultType {
   comments: GetCommentsType[];
 }
+
+export interface WorkerType {
+  id: string;
+  name: string;
+  phoneNumber: number;
+  profession: string;
+  photo: { url: string };
+}
+
+export interface QueryWorkerType {
+  workers: WorkerType[];
+}

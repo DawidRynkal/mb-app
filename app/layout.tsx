@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import "./globals.scss";
 import { Header, WorkersWidget } from "@/components";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,14 +23,16 @@ export default function RootLayout({
         <div className="flex justify-center w-full">
           <div className="max-w-screen-xl w-full">
             <Header />
-            <div className="lg:container mx-auto px-10 mb-8 lg:flex lg:flex-row-reverse">
-              <div className="lg:col-span-4 col-span-1">
-                <div className="lg:sticky lg:relative lg:top-8">
-                  <WorkersWidget />
+            <Suspense fallback={<Loading />}>
+              <div className="lg:container mx-auto px-10 mb-8 lg:flex lg:flex-row-reverse">
+                <div className="lg:col-span-4 col-span-1">
+                  <div className="lg:sticky lg:relative lg:top-8">
+                    <WorkersWidget />
+                  </div>
                 </div>
+                {children}
               </div>
-              {children}
-            </div>
+            </Suspense>
           </div>
         </div>
       </body>

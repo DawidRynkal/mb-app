@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import favicon from "../app/favicon.ico";
+import { getWorkers } from "@/services";
 
-const workers = [{ name: "Ander" }, { name: "Juan" }];
+const WorkersWidget = async () => {
+  const { workers } = await getWorkers();
 
-const WorkersWidget = () => {
   return (
     <div className="bg-white h-fit shadow-lg rounded-lg p-4 lg:pb-12 mb-8 min-w-[300px]">
       <h3 className="text-xl mb-8 font-semibold border-b pb-4">
@@ -13,21 +13,30 @@ const WorkersWidget = () => {
       </h3>
       {workers.map((worker, index) => (
         <div key={index} className="flex items-center w-full mb-4">
-          <div className="w-16 flex-none">
+          <div>
             <Image
-              alt="image"
-              height={60}
-              width={60}
               unoptimized
+              alt="worker"
+              width={0}
+              height={0}
               className="align-middle rounded-full"
-              src={favicon}
+              src={worker.photo.url ? worker.photo.url : favicon}
+              style={{ width: "80px", height: "80px", objectFit: "cover" }}
             />
           </div>
           <div className="flex-grow ml-4">
-            <Link href={`/person`} className="text-md" key={index}>
+            <p className="text-md" key={worker.id}>
               {worker.name}
-            </Link>
-            <p className="text-gray-500 font-xs">999 888 543</p>
+            </p>
+            <p>
+              <a
+                href={`href:${worker.phoneNumber}`}
+                className="text-gray-500 font-xs"
+              >
+                +48 {worker.phoneNumber}
+              </a>
+            </p>
+            <p className="text-md">{worker.profession}</p>
           </div>
         </div>
       ))}

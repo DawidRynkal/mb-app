@@ -4,5 +4,14 @@ import PostDetail from "./PostDetail";
 import CommentsForm from "./CommentsForm";
 import Comments from "./Comments";
 import WorkersWidget from "./WorkersWidget";
+import Loader from "./Loader";
 
-export { PostCard, Header, PostDetail, WorkersWidget, CommentsForm, Comments };
+export {
+  PostCard,
+  Header,
+  PostDetail,
+  WorkersWidget,
+  CommentsForm,
+  Comments,
+  Loader,
+};

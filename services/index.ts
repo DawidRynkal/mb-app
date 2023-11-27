@@ -3,6 +3,7 @@ import {
   QueryPostDetailsResultProps,
   CommentPostType,
   QueryCommentsDetailsResultType,
+  QueryWorkerType,
 } from "@/types";
 import { request, gql } from "graphql-request";
 
@@ -42,6 +43,26 @@ export const getPosts = async () => {
   const resluts: QueryPostsResultProps = await request(grapqlAPI, query);
 
   return resluts.postsConnection.edges;
+};
+
+export const getWorkers = async () => {
+  const query = gql`
+    query MyQuery {
+      workers {
+        id
+        name
+        phoneNumber
+        profession
+        photo {
+          url
+        }
+      }
+    }
+  `;
+
+  const result: QueryWorkerType = await request(grapqlAPI, query);
+
+  return result;
 };
 
 export const getPostDetails = async (slug: string) => {
