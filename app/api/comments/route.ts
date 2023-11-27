@@ -33,8 +33,21 @@ export const POST = async (req: NextRequest) => {
     }
   `;
 
+  const queryPublishComment = `mutation PublishComment($id: ID!) {
+    publishComment(where: { id: $id }, to: PUBLISHED) {
+      id
+    }
+  }`;
+
   try {
-    await hygraph.request(query, newReq);
+    const {
+      createComment,
+    }: {
+      createComment: {
+        id: string;
+      };
+    } = await hygraph.request(query, newReq);
+    await hygraph.request(queryPublishComment, { id: createComment.id });
 
     return NextResponse.json({ message: "Comment POST failed" });
   } catch (err) {

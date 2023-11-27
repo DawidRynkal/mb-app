@@ -82,3 +82,13 @@ export interface CommentPostType {
   email: string;
   name: string;
 }
+
+export interface GetCommentsType {
+  comment: string;
+  createdAt: string;
+  name: string;
+}
+
+export interface QueryCommentsDetailsResultType {
+  comments: GetCommentsType[];
+}

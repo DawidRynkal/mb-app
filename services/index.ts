@@ -2,6 +2,7 @@ import {
   QueryPostsResultProps,
   QueryPostDetailsResultProps,
   CommentPostType,
+  QueryCommentsDetailsResultType,
 } from "@/types";
 import { request, gql } from "graphql-request";
 
@@ -77,6 +78,26 @@ export const getPostDetails = async (slug: string) => {
   });
 
   return result.post;
+};
+
+export const getConnectedComments = async (slug: string) => {
+  const query = gql`
+    query GetConnectedComments($slug: String!) {
+      comments(where: { post: { slug: $slug } }) {
+        comment
+        createdAt
+        name
+      }
+    }
+  `;
+
+  const result: QueryCommentsDetailsResultType = await request(
+    grapqlAPI,
+    query,
+    { slug }
+  );
+
+  return result.comments;
 };
 
 export const submitComment = async (obj: CommentPostType) => {

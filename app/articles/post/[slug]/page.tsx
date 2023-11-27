@@ -1,10 +1,12 @@
-import { CommentsForm, PostDetail } from "@/components";
+import { Comments, CommentsForm, PostDetail } from "@/components";
 import Author from "@/components/Author";
-import { getPostDetails } from "@/services";
+import { getPostDetails, getConnectedComments } from "@/services";
+import { useRouter } from "next/router";
 import React from "react";
 
 const PostDetails = async ({ params }: { params: { slug: string } }) => {
   const postDetails = await getPostDetails(params.slug);
+  const postComments = await getConnectedComments(params.slug);
 
   return (
     <>
@@ -20,7 +22,7 @@ const PostDetails = async ({ params }: { params: { slug: string } }) => {
             />
             {/* <AdjacentPosts slug={post.slug} createdAt={post.createdAt} /> */}
             <CommentsForm slug={postDetails.slug} />
-            {/*  <Comments slug={post.slug} /> */}
+            <Comments postComments={postComments} />
           </div>
         </div>
       </div>

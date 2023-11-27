@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, SetStateAction } from "react";
 import { submitComment } from "../services";
+import { useRouter } from "next/navigation";
 
 interface DataTypes {
   name: string | null;
@@ -11,6 +12,8 @@ interface DataTypes {
 }
 
 const CommentsForm = ({ slug }: { slug: string }) => {
+  const router = useRouter();
+
   const [error, setError] = useState<boolean>(false);
   const [localStorage, setLocalStorage] = useState<Storage | null>(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -90,6 +93,7 @@ const CommentsForm = ({ slug }: { slug: string }) => {
         setTimeout(() => {
           setShowSuccessMessage(false);
         }, 3000);
+        router.refresh();
       }
     });
   };

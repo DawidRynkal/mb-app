@@ -1,8 +1,4 @@
-"use client";
-
-import { CommentsForm, PostWidget } from "@/components";
-import { submitComment } from "@/services";
-import { useEffect } from "react";
+import { PostWidget } from "@/components";
 
 export default function Home() {
   return (
