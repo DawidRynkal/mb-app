@@ -21,17 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex justify-center w-full">
-          <div className="max-w-screen-xl w-full">
+          <div className="w-full">
             <div className="bg-slate-800 h-72">
               <Header />
             </div>
             <Suspense fallback={<Loading />}>
               <div className="lg:container mx-auto px-10 mb-8 mt-8 lg:flex lg:flex-row-reverse">
-                <div className="lg:col-span-4 col-span-1">
-                  <div className="lg:sticky lg:relative lg:top-8 mb-8">
-                    <WorkersWidget />
-                  </div>
-                </div>
                 {children}
               </div>
             </Suspense>

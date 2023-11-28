@@ -7,7 +7,7 @@ const WorkersWidget = async () => {
   const { workers } = await getWorkers();
 
   return (
-    <div className="bg-white h-fit shadow-lg rounded-lg p-4 lg:pb-12 mb-8 min-w-[300px]">
+    <div className="text-black	bg-white h-fit shadow-lg rounded-lg p-4 lg:pb-12 mb-8 min-w-[300px]">
       <h3 className="text-xl mb-8 font-semibold border-b pb-4">
         Contact our specialist!
       </h3>

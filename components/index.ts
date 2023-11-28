@@ -6,6 +6,7 @@ import Comments from "./Comments";
 import WorkersWidget from "./WorkersWidget";
 import Loader from "./Loader";
 import Footer from "./Footer";
+import MainPageTopSection from "./MainPageTopSection";
 
 export {
   PostCard,
@@ -16,4 +17,5 @@ export {
   Comments,
   Loader,
   Footer,
+  MainPageTopSection,
 };

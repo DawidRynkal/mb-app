@@ -5,7 +5,7 @@ import { footerLinks } from "../constans";
 import favicon from "../app/favicon.ico";
 
 const Footer = () => (
-  <footer className="flex flex-col text-black-100  mt-5 border-t border-gray-100">
+  <footer className="flex flex-col text-black-100  mt-5 border-t">
     <div className="flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10">
       <div className="flex flex-col justify-start items-start gap-6">
         <Image
@@ -21,9 +21,9 @@ const Footer = () => (
         </p>
       </div>
 
-      <div className="footer__links flex justify-space-between">
+      <div className="flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-20 flex justify-space-between">
         {footerLinks.map((item) => (
-          <div key={item.title} className="footer__link p-4">
+          <div key={item.title} className="p-4">
             <h3 className="font-bold">{item.title}</h3>
             <div className="flex flex-col gap-5">
               {item.links.map((link) => (
@@ -44,7 +44,7 @@ const Footer = () => (
     <div className="flex justify-between items-center flex-wrap mt-10 bg-black text-white border-t border-gray-100 sm:px-16 px-6 py-5">
       <p>@2023 CarHub. All rights reserved</p>
 
-      <div className="footer__copyrights-link">
+      <div className="lex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10">
         <Link href="/" className="text-gray-500">
           Privacy & Policy
         </Link>
