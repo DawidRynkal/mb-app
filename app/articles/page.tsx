@@ -1,10 +1,13 @@
-import { PostCard } from "@/components";
+import PostCardsWrapper from "@/components/PostCardsWrapper";
 import WorkersWidget from "@/components/WorkersWidget";
-import { getPosts } from "@/services";
+import { getPostsServer } from "@/services/postsQuery";
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
 
-export default async function Home() {
-  const posts = await getPosts();
-
+export default async function Articles() {
   return (
     <>
       <div className="lg:col-span-4 col-span-1">
@@ -13,13 +16,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="lg:container mx-auto lg:pr-10 max-w-5xl">
-        <div className="grid grid-cols-1">
-          <div className="col-span-1 lg:col-span-8">
-            {posts.map((singlePost) => (
-              <PostCard key={singlePost.node.slug} node={singlePost.node} />
-            ))}
-          </div>
-        </div>
+        <PostCardsWrapper />
       </div>
     </>
   );

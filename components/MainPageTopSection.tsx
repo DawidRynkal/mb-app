@@ -16,7 +16,13 @@ const MainPageTopSection = () => {
       </div>
       <div className="xl:flex-[1.5] flex justify-start items-end w-full xl:h-screen">
         <div className="relative xl:w-full w-[50%] xl:h-full h-[290px] z-0">
-          <Image src="/hero.png" alt="car" fill className="object-contain" />
+          <Image
+            src="/hero.png"
+            alt="car"
+            fill
+            sizes="(max-width: 350px)"
+            className="object-contain"
+          />
         </div>
 
         <div className="absolute xl:-top-24 xl:-right-1/2 -right-1/4 top-1/2 md:top-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen md:h-[590px] h-[390px] overflow-hidden">

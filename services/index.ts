@@ -9,42 +9,6 @@ import { request, gql } from "graphql-request";
 
 const grapqlAPI: string = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
 
-export const getPosts = async () => {
-  const query = gql`
-    query MyQuery {
-      postsConnection {
-        edges {
-          node {
-            author {
-              bio
-              id
-              name
-              photo {
-                url
-              }
-            }
-            createdAt
-            slug
-            title
-            excerpt
-            featuredImage {
-              url
-            }
-            categories {
-              slug
-              category
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  const resluts: QueryPostsResultProps = await request(grapqlAPI, query);
-
-  return resluts.postsConnection.edges;
-};
-
 export const getWorkers = async () => {
   const query = gql`
     query MyQuery {
@@ -122,13 +86,22 @@ export const getConnectedComments = async (slug: string) => {
 };
 
 export const submitComment = async (obj: CommentPostType) => {
-  const result = await fetch("/api/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(obj),
-  });
+  try {
+    const result = await fetch("/api/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    });
 
-  return result;
+    if (!result.ok) {
+      throw new Error(`${result.status} ${result.statusText}`);
+    }
+    return result;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+ 
 };

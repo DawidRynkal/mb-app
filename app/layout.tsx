@@ -4,6 +4,7 @@ import "./globals.scss";
 import { Footer, Header, WorkersWidget } from "@/components";
 import Loading from "./loading";
 import { Suspense } from "react";
+import QueryProvider from "@/utils/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,7 @@ export default function RootLayout({
             </div>
             <Suspense fallback={<Loading />}>
               <div className="lg:container mx-auto px-10 mb-8 mt-8 lg:flex lg:flex-row-reverse">
-                {children}
+                <QueryProvider>{children}</QueryProvider>
               </div>
             </Suspense>
             <Footer />

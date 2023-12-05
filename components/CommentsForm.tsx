@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, SetStateAction } from "react";
+import React, { useState, useEffect } from "react";
 import { submitComment } from "../services";
 import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+import { Loader } from ".";
 
 interface DataTypes {
   name: string | null;
@@ -17,10 +19,36 @@ const CommentsForm = ({ slug }: { slug: string }) => {
   const [error, setError] = useState<boolean>(false);
   const [localStorage, setLocalStorage] = useState<Storage | null>(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
   const [formData, setFormData] = useState<DataTypes>({
     name: "",
     email: "",
     storeData: false,
+  });
+  const { mutate, isPending } = useMutation({
+    mutationFn: submitComment,
+    onSuccess: () => {
+      if (!formData.storeData) {
+        formData.name = "";
+        formData.email = "";
+      }
+      formData.comment = "";
+      setFormData((prevState) => ({
+        ...prevState,
+        ...formData,
+      }));
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+      router.refresh();
+    },
+    onError: () => {
+      setShowErrorMessage(true);
+      setTimeout(() => {
+        setShowErrorMessage(false);
+      }, 3000);
+    },
   });
 
   useEffect(() => {
@@ -78,24 +106,7 @@ const CommentsForm = ({ slug }: { slug: string }) => {
       localStorage?.removeItem("email");
     }
 
-    submitComment(commentObj).then((res) => {
-      if (res.status === 200) {
-        if (!storeData) {
-          formData.name = "";
-          formData.email = "";
-        }
-        formData.comment = "";
-        setFormData((prevState) => ({
-          ...prevState,
-          ...formData,
-        }));
-        setShowSuccessMessage(true);
-        setTimeout(() => {
-          setShowSuccessMessage(false);
-        }, 3000);
-        router.refresh();
-      }
-    });
+    mutate(commentObj);
   };
 
   return (
@@ -153,14 +164,20 @@ const CommentsForm = ({ slug }: { slug: string }) => {
         <button
           type="button"
           onClick={handlePostSubmission}
-          className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
+          className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer w-[200px]"
         >
-          Post Comment
+          {isPending ? <Loader /> : "Post Comment"}
         </button>
-        {showSuccessMessage && (
+        {showSuccessMessage ? (
           <span className="text-xl float-right font-semibold mt-3 text-green-500">
             Comment added successfully!
           </span>
+        ) : showErrorMessage ? (
+          <span className="text-xl float-right font-semibold mt-3 text-green-500">
+            Error adding, try later..!
+          </span>
+        ) : (
+          ""
         )}
       </div>
     </div>

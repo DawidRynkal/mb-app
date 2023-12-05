@@ -41,6 +41,7 @@ export interface EdgeProps {
 
 export interface PostsConnectionProps {
   edges: EdgeProps[];
+  pageInfo: { hasNextPage: boolean };
 }
 
 export interface QueryPostsResultProps {
