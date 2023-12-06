@@ -7,6 +7,8 @@ import WorkersWidget from "./WorkersWidget";
 import Loader from "./Loader";
 import Footer from "./Footer";
 import MainPageTopSection from "./MainPageTopSection";
+import CarCard from "./CarCards";
+import CarCardWrapper from "./CarCardWrapper";
 
 export {
   PostCard,
@@ -18,4 +20,6 @@ export {
   Loader,
   Footer,
   MainPageTopSection,
+  CarCard,
+  CarCardWrapper,
 };

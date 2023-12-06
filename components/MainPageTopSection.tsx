@@ -3,7 +3,7 @@ import React from "react";
 
 const MainPageTopSection = () => {
   return (
-    <div className="flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto">
+    <div className="flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto border-b border-solid">
       <div className="flex-1 padding-x">
         <h1 className="2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold">
           Find, book, rent a car—quick and super easy!
@@ -25,8 +25,13 @@ const MainPageTopSection = () => {
           />
         </div>
 
-        <div className="absolute xl:-top-24 xl:-right-1/2 -right-1/4 top-1/2 md:top-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen md:h-[590px] h-[390px] overflow-hidden">
-          <Image src="/logo.png" alt="logo" fill className="object-contain" />
+        <div className="relative -top-[70px] -left-[175px] xl:w-full w-[50%] xl:h-full h-[290px] -z-10">
+          <Image
+            src="/tire.svg"
+            alt="logo"
+            fill
+            className="absolute object-contain"
+          />
         </div>
       </div>
     </div>

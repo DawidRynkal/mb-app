@@ -105,3 +105,25 @@ export interface WorkerType {
 export interface QueryWorkerType {
   workers: WorkerType[];
 }
+
+export interface CarType {
+  node: {
+    id: string;
+    fuelType: string;
+    model: string;
+    engine: string;
+    subModel: string;
+    transmission: string;
+    powerBeforeKm: number;
+    niutonometerBeforeNm: number;
+    powerAterKm: number;
+    niutonometeAfterNm: number;
+    carImage: { url: string };
+    powerUpImage: { url: string };
+  };
+}
+
+export interface CarsConnectionProps {
+  edges: CarType[];
+  pageInfo: { hasNextPage: boolean };
+}

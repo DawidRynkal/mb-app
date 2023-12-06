@@ -1,5 +1,4 @@
 import {
-  QueryPostsResultProps,
   QueryPostDetailsResultProps,
   CommentPostType,
   QueryCommentsDetailsResultType,
@@ -103,5 +102,4 @@ export const submitComment = async (obj: CommentPostType) => {
     console.log(error);
     throw error;
   }
- 
 };

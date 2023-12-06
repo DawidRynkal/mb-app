@@ -9,9 +9,9 @@ import { EdgeProps } from "@/types";
 
 const PostCardsWrapper = () => {
   const [loadedData, setLoadedData] = useState<EdgeProps[]>([]);
-  const [num, setNum] = useState<number>(1);
+  const [postsNum, setPostsNum] = useState<number>(1);
   const { data, isError, isLoading } = useQuery({
-    queryKey: ["posts", num],
+    queryKey: ["posts", postsNum],
     queryFn: async ({ queryKey }) =>
       await getPostsServer(queryKey[1] as number),
   });
@@ -23,7 +23,7 @@ const PostCardsWrapper = () => {
   }, [data]);
 
   const handleShowMore = () => {
-    setNum((prev) => prev + 1);
+    setPostsNum((prev) => prev + 1);
   };
 
   return (
