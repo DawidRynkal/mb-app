@@ -3,7 +3,7 @@
 import { getCarsServer } from "@/services/carsQuery";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { CarCard, Loader } from ".";
+import { CarCard, CustomButton, Loader } from ".";
 import { CarType } from "@/types";
 
 const CarCardWrapper = () => {
@@ -47,12 +47,11 @@ const CarCardWrapper = () => {
         </div>
       )}
       {loadedData.length > 0 && data?.pageInfo.hasNextPage && (
-        <button
-          onClick={handleShowMore}
-          className="mt-8 transition duration-500 ease transform hover:-translate-y-1 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
-        >
-          Show more
-        </button>
+        <CustomButton
+          additionalClass="mt-8"
+          btnText="Show more"
+          handleClick={handleShowMore}
+        />
       )}
     </>
   );

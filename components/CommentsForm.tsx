@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { submitComment } from "../services";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
-import { Loader } from ".";
+import { CustomButton, Loader } from ".";
 
 interface DataTypes {
   name: string | null;
@@ -161,13 +161,12 @@ const CommentsForm = ({ slug }: { slug: string }) => {
         <p className="text-xs text-red-500">All fields are mandatory</p>
       )}
       <div className="mt-8">
-        <button
-          type="button"
-          onClick={handlePostSubmission}
-          className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer w-[200px]"
-        >
-          {isPending ? <Loader /> : "Post Comment"}
-        </button>
+        <CustomButton
+          btnText="Post Comment"
+          handleClick={handlePostSubmission}
+          additionalClass="w-[200px]"
+        />
+        {isPending && <Loader />}
         {showSuccessMessage ? (
           <span className="text-xl float-right font-semibold mt-3 text-green-500">
             Comment added successfully!

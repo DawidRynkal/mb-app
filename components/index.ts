@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import MainPageTopSection from "./MainPageTopSection";
 import CarCard from "./CarCards";
 import CarCardWrapper from "./CarCardWrapper";
+import CustomButton from "./CustomButton";
 
 export {
   PostCard,
@@ -22,4 +23,5 @@ export {
   MainPageTopSection,
   CarCard,
   CarCardWrapper,
+  CustomButton,
 };

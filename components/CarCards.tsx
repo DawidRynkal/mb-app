@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { CarType } from "@/types";
+import { CustomButton } from ".";
 
 const CarCard = ({ node }: CarType) => {
   const {
@@ -77,12 +78,10 @@ const CarCard = ({ node }: CarType) => {
         </div>
 
         <div className="hidden group-hover:flex absolute bottom-0 w-full z-10">
-          <button
-            onClick={() => setIsOpen(true)}
-            className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
-          >
-            Show details
-          </button>
+          <CustomButton
+            btnText="Show details"
+            handleClick={() => setIsOpen(true)}
+          />
         </div>
       </div>
 

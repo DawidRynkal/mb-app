@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getPostsServer } from "@/services/postsQuery";
 import Loader from "./Loader";
 import { EdgeProps } from "@/types";
+import { CustomButton } from ".";
 
 const PostCardsWrapper = () => {
   const [loadedData, setLoadedData] = useState<EdgeProps[]>([]);
@@ -41,12 +42,7 @@ const PostCardsWrapper = () => {
       </div>
       {isLoading && <Loader />}
       {data?.pageInfo.hasNextPage && (
-        <button
-          onClick={handleShowMore}
-          className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
-        >
-          Show more
-        </button>
+        <CustomButton btnText="Show more" handleClick={handleShowMore} />
       )}
     </>
   );
