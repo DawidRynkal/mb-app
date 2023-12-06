@@ -10,6 +10,7 @@ import MainPageTopSection from "./MainPageTopSection";
 import CarCard from "./CarCards";
 import CarCardWrapper from "./CarCardWrapper";
 import CustomButton from "./CustomButton";
+import ErrorFetch from "./ErrorFetch";
 
 export {
   PostCard,
@@ -24,4 +25,5 @@ export {
   CarCard,
   CarCardWrapper,
   CustomButton,
+  ErrorFetch,
 };

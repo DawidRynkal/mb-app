@@ -160,19 +160,19 @@ const CommentsForm = ({ slug }: { slug: string }) => {
       {error && (
         <p className="text-xs text-red-500">All fields are mandatory</p>
       )}
-      <div className="mt-8">
+      <div className="mt-8 flex">
         <CustomButton
           btnText="Post Comment"
           handleClick={handlePostSubmission}
-          additionalClass="w-[200px]"
+          additionalClass="min-w-[200px]"
         />
         {isPending && <Loader />}
         {showSuccessMessage ? (
-          <span className="text-xl float-right font-semibold mt-3 text-green-500">
+          <span className="text-sm text-green-500 block flex items-center ml-[50px]">
             Comment added successfully!
           </span>
         ) : showErrorMessage ? (
-          <span className="text-xl float-right font-semibold mt-3 text-green-500">
+          <span className="text-sm text-red-500 block flex items-center ml-[50px]">
             Error adding, try later..!
           </span>
         ) : (

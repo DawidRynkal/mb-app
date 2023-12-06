@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getPostsServer } from "@/services/postsQuery";
 import Loader from "./Loader";
 import { EdgeProps } from "@/types";
-import { CustomButton } from ".";
+import { CustomButton, ErrorFetch } from ".";
 
 const PostCardsWrapper = () => {
   const [loadedData, setLoadedData] = useState<EdgeProps[]>([]);
@@ -31,7 +31,7 @@ const PostCardsWrapper = () => {
     <>
       <div className="grid grid-cols-1">
         {isError ? (
-          <h3>Something went wrong, try later...</h3>
+          <ErrorFetch errorMessage="Something went wrong, try later..." />
         ) : (
           <div className="col-span-1 lg:col-span-8">
             {loadedData.map((singlePost) => (

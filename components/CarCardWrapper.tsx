@@ -3,7 +3,7 @@
 import { getCarsServer } from "@/services/carsQuery";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { CarCard, CustomButton, Loader } from ".";
+import { CarCard, CustomButton, ErrorFetch, Loader } from ".";
 import { CarType } from "@/types";
 
 const CarCardWrapper = () => {
@@ -25,7 +25,7 @@ const CarCardWrapper = () => {
   };
 
   if (isError) {
-    return <div className="mb-8 mt-8">Error, try later...</div>;
+    return <ErrorFetch errorMessage="Something went wrong, try later..." />;
   }
   return (
     <>
