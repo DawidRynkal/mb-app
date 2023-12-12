@@ -11,6 +11,8 @@ import CarCard from "./CarCards";
 import CarCardWrapper from "./CarCardWrapper";
 import CustomButton from "./CustomButton";
 import ErrorFetch from "./ErrorFetch";
+import CarDetails from "./CarDetails";
+import ChartZoom from "./ChartZoom";
 
 export {
   PostCard,
@@ -26,4 +28,6 @@ export {
   CarCardWrapper,
   CustomButton,
   ErrorFetch,
+  CarDetails,
+  ChartZoom,
 };

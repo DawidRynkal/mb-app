@@ -3,22 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { CarType } from "@/types";
-import { CustomButton } from ".";
+import { CarDetails, CustomButton } from ".";
 
-const CarCard = ({ node }: CarType) => {
-  const {
-    model,
-    subModel,
-    engine,
-    transmission,
-    fuelType,
-    powerBeforeKm,
-    niutonometerBeforeNm,
-    powerAterKm,
-    niutonometeAfterNm,
-    carImage,
-    powerUpImage,
-  } = node;
+const CarCard = (node: CarType) => {
+  const { model, subModel, engine, transmission, fuelType, carImage } =
+    node.node;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -85,7 +74,11 @@ const CarCard = ({ node }: CarType) => {
         </div>
       </div>
 
-      {/* <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} /> */}
+      <CarDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        car={node}
+      />
     </div>
   );
 };
