@@ -21,17 +21,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex justify-center w-full">
-          <div className="w-full">
-            <div className="bg-slate-800 h-72">
-              <Header />
-            </div>
-            <Suspense fallback={<Loading />}>
-              <div className="lg:container mx-auto px-10 mb-8 mt-8 lg:flex lg:flex-row-reverse">
-                <QueryProvider>{children}</QueryProvider>
+        <div className="flex justify-center">
+          <div className="flex justify-center w-full max-w-[1800px]">
+            <QueryProvider>
+              <div className="w-full">
+                <div className="bg-slate-800 h-96">
+                  <Header />
+                </div>
+                <Suspense fallback={<Loading />}>
+                  <div className="lg:container mx-auto px-10 mb-8 mt-8 lg:flex lg:flex-row-reverse">
+                    {children}
+                  </div>
+                </Suspense>
+                <Footer />
               </div>
-            </Suspense>
-            <Footer />
+            </QueryProvider>
           </div>
         </div>
       </body>

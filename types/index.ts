@@ -127,3 +127,24 @@ export interface CarsConnectionProps {
   edges: CarType[];
   pageInfo: { hasNextPage: boolean };
 }
+
+
+
+export interface SliderImagesType {
+  slider_images: [
+    {
+      slide1: {
+        url: string;
+      };
+      slide2: {
+        url: string;
+      };
+      slide3: {
+        url: string;
+      };
+      slide4: {
+        url: string;
+      };
+    }
+  ];
+}

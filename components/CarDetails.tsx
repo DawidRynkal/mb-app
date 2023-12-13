@@ -13,7 +13,12 @@ interface CarDetailsProps {
   car: CarType;
 }
 
-const TableRow = ({ label, value }: any) => (
+interface TableRowProps {
+  label: string;
+  value: string;
+}
+
+const TableRow = ({ label, value }: TableRowProps) => (
   <tr className="border-b border-primary-blue-200">
     <td className="py-2 px-4 text-left">{label}</td>
     <td className="py-2 px-4 text-right">{value}</td>

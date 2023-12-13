@@ -22,12 +22,15 @@
     "react-dom": "^18",
     "react-multi-carousel": "^2.8.4",
     "react-query": "^3.39.3",
-    "sass": "^1.69.5"
+    "react-slick": "^0.29.0",
+    "sass": "^1.69.5",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-slick": "^0.23.12",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",

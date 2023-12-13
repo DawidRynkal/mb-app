@@ -64,3 +64,20 @@ a {
 * {
   box-sizing: border-box;
 }
+.slick-slider,
+.slick-list,
+.slick-track {
+  height: 100%;
+}
+
+.slick-arrow {
+  z-index: 1000;
+}
+
+.slick-next {
+  right: 15px !important;
+}
+
+.slick-prev {
+  left: 15px !important;
+}

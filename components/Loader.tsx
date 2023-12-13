@@ -1,7 +1,13 @@
 import React from "react";
 
-const Loader = () => (
-  <div className="flex items-center justify-center text-center w-full">
+interface LoaderProps {
+  customClass?: string;
+}
+
+const Loader = ({ customClass }: LoaderProps) => (
+  <div
+    className={`${customClass} flex items-center justify-center text-center w-full`}
+  >
     <svg
       className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
       xmlns="http://www.w3.org/2000/svg"
